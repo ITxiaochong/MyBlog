@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MyBlog</title>
+	<link rel="stylesheet" href="./css/main.css">
+	<script src="./js/jquery.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="header-barrier"></div>
+		<header class="header" ondragstart="return false;">
+			<div class="header-title">
+				<input type="radio" class="Myinfo" name="h-picker-choice" id="Myinfo" checked="checked">
+				<span>MyInfo</span>
+				<input type="radio" class="Myblog" name="h-picker-choice" id="Myblog">
+				<span>MyBlog</span>
+				<input type="radio" class="Myorder" name="h-picker-choice" id="Myorder">
+				<span>MyOrder</span>
+			</div>
+			<div class="header-search">
+				<input type="text" name="search" id="search-all">
+				<span>
+					Search
+				</span>
+			</div>
+			<div class="logOreg">
+				<span class="log">
+					Login/
+				</span>
+				<span class="register">
+					Register
+				</span>
+			</div>
+		</header>
+		
+		<div class="scroll-content">
+			<div class="content content0" id="pg-Myinfo">
+				<div class="content0-left">
+					<ul class="content0-lists">
+						<li class="lists-info-0">个人资料</li>
+						<li class="lists-info-1">订阅信息</li>
+						<li class="lists-info-2">最近浏览</li>
+						<div class="content0-left-line" style="height:3px;border-radius: 3px;background: #f0f1f1;"></div>
+						<li class="lists-info-3">我的粉丝</li>
+						<li class="lists-info-4">我的博客</li>
+						<li class="lists-info-5">我的下载</li>
+						<li class="lists-info-6">我的评论</li>
+						<li class="lists-info-7">我的关注</li>
+					</ul>
+				</div>
+				<div class="content0-right">
+					
+				</div>
+			</div>
+			<div class="content content1" id="pg-Myblog">
+				<header class="content1-header"></header>
+				<section class="content1-section"></section>
+				<footer class="content1-footer"></footer>
+			</div>
+			<div class="content content2" id="pg-Myorder">
+				<header class="content2-header"></header>
+				<section class="content2-section"></section>
+				<footer class="content2-footer"></footer>
+			</div>
+		</div>
+		
+		<footer class="footer"></footer>
+	</div>
+
+	<script src="./js/index.js"></script>
+</body>
+</html>

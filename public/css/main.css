@@ -1,0 +1,191 @@
+*{padding: 0;margin: 0;}
+html,body{
+	height: 100%;
+	overflow: hidden;
+	webkit-font-smoothing: antialiased;
+	background: rgba(0,0,0,.2);
+}
+
+/* 当屏幕宽度小于800时的样式 */
+@media screen and (max-width:800px){
+	/* 登陆/注册/搜索隐藏 */
+	.header-search,.logOreg{
+		display: none;
+	}
+	/* 全体头部选项的新的间隔 */
+	.Myinfo,.Myblog,.Myorder,input[name="h-picker-choice"] ~ span{
+		position: absolute;
+	}
+	.Myinfo,.Myinfo + span{
+		left: 12%;
+	}
+	.Myblog,.Myblog + span{
+		left: 40%;
+	}
+	.Myorder,.Myorder + span{
+		left: 72%;
+	}
+	input[name="h-picker-choice"]:checked + span{
+		color: red;
+	}
+}
+
+/* 全体包裹盒子 */
+.container{
+position: relative;
+height: 100%;
+width: 100%;
+background: white;
+}
+/* 全体头部 */
+.header{
+	position: relative;
+	user-select: none;
+	height: 12%;
+	border-bottom: 10px solid rgba(0, 0, 0, .5);
+	border-bottom-right-radius: 50%;
+	border-bottom-left-radius: 50%;
+	background: #f5f5f5;
+	z-index: 100;
+}
+/* 头部遮挡栏防止页面bottom剩余覆盖 */
+.header-barrier{
+   position: absolute;
+   z-index:98;
+   background: #fff;
+   height: 12%;
+   width: 100%;
+   top: 0;
+}
+/* 全体头部的具体样式 */
+.header-title {
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+input[name="h-picker-choice"]{
+	height: 12vh;
+	width: 16vh;
+	opacity: 0;
+	z-index: 1;
+	cursor: pointer;
+}
+input[name="h-picker-choice"] ~ span{
+	font-size: 4vh;
+	line-height: 12vh;
+	text-decoration: none;
+}
+.Myinfo,.Myblog,.Myorder,input[name="h-picker-choice"] ~ span{
+	position: absolute;
+}
+.Myinfo,.Myinfo + span{
+	left: 3%;
+}
+.Myblog,.Myblog + span{
+	left: 20%;
+}
+.Myorder,.Myorder + span{
+	left: 38%;
+}
+/* 当头部选择有点击或者划过的样式 */
+input[name="h-picker-choice"]:checked + span{
+	color: red;
+}
+input[name="h-picker-choice"]:hover + span{
+	transform: scale(1.1);
+	transition: transform .6s linear;
+}
+/* 全体头部的搜索栏样式 */
+.header-search{
+	padding:10px ;
+	box-sizing: border-box;
+	position: absolute;
+	bottom: 10%;
+	height: 50px;
+	background: silver;
+	left: 55%;
+}
+input[name="search"]{
+	height: 24px;
+	width: 160px;
+}
+/* 全体头部登陆注册的样式 */
+.logOreg{
+	position: absolute;
+	right: 10px;
+	bottom: 40%;
+	font-size: 1em;
+	color: violet;
+}
+
+
+
+/* 滚动单屏样式 */
+.scroll-content{
+	position: relative;
+	height: 88%;
+	width: 1520px; /* 设置具体的宽度改变浏览器宽度不影响内容 */
+	margin: 0 auto;
+}
+/* 滚动单屏的公共样式*/
+.scroll-content > div{
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+.content0,.content1,.content2{
+	background: #fff;
+}
+/* 滚动单屏1的区分样式 */
+.content0{
+	font-size: 0px; /* 解决inline-block的空格问题 */
+}
+/* 滚动单屏1左侧 */
+.content0-left{
+	position: relative;
+	background: #fff;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 6%;
+	width: 13%;
+	height: 45%;
+}
+/* page1左侧的列表 */
+.content0-lists{
+	box-sizing: border-box;
+	box-shadow: 5px 2px 20px silver;
+	width:100%;
+	height: 100%;
+}
+.content0-lists>li{
+	list-style: none;
+	font-family: '宋体';
+	font-size: 21px;
+	user-select: none;
+	cursor: pointer;
+	line-height: 38px;
+	height: 38px;
+	box-sizing: border-box;
+	text-align: center;
+	border-radius: 4px;
+
+}
+/* page1列表划过样式 */
+.content0-lists li:hover{
+	font-size: 22px;
+	background: #f56c6c;
+}
+
+/* 滚动单屏1右侧 */
+.content0-right{
+	position: relative;
+	display: inline-block;
+	overflow-y: hidden;
+	width: 75%;
+	height: 95%;
+	margin-left: .8%;
+	box-sizing: border-box;
+	box-shadow: 4px 2px 20px silver;
+	background: #fff;
+}
+
