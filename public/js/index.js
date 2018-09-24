@@ -1,11 +1,4 @@
-// 全体头部控制换页功能
-const inputs = document.getElementsByTagName('input');
-const scrollContent = document.getElementsByClassName('scroll-content')[0];
-for(let i = 0;i<inputs.length;i++){
-	inputs[i].onclick = function(){
-		if(inputs[i].checked == true){
-			scrollContent.style.top = -i*88+"%";
-			console.log(scrollContent.style.top);
-		}
-	}
-}
+/**
+ * Created by Itxiaochong 23/09/2018
+ * Description: 该文件是用于Server-Client交互的主要
+ */

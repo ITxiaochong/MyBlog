@@ -1,0 +1,67 @@
+/* 滚动单屏1的区分样式 */
+
+.content0{
+	font-size: 0px; /* 解决inline-block的空格问题 */
+}
+.content0-container{
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+}
+/* 滚动单屏1左侧 */
+.content0-left{
+	position: relative;
+	background: #fff;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 5%;
+	width: 13%;
+	height: 45%;
+}
+/* 该页屏幕宽度小于1000隐藏左边栏 */
+@media screen and (max-width: 1000px){
+	.content0-left{
+		display: none;
+	}
+}
+/* page1左侧的列表 */
+.content0-lists{
+	box-sizing: border-box;
+	box-shadow: 5px 2px 20px silver;
+	width:100%;
+	height: 310px;
+}
+.content0-lists>li{
+	list-style: none;
+	font-family: '宋体';
+	font-size: 21px;
+	user-select: none;
+	cursor: pointer;
+	line-height: 38px;
+	height: 38px;
+	box-sizing: border-box;
+	text-align: center;
+	border-radius: 4px;
+
+}
+.lists-info-0{
+	background: #D6D121;
+}
+/* 滚动单屏1右侧 */
+.content0-right{
+	position: relative;
+	display: inline-block;
+	overflow-y: hidden;
+	width: 75%;
+	height: 95%;
+	margin-left: .8%;
+	box-sizing: border-box;
+	box-shadow: 4px 2px 20px silver;
+	background: #fff;
+}
+@media screen and (max-width: 1000px){
+	.content0-right{
+		height: 100%;
+		width: 940px;
+	}
+}

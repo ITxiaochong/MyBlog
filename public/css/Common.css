@@ -1,0 +1,53 @@
+/* 字体 */
+@font-face{
+	font-family: 'title-1';
+	src: url('../fonts/font1338/Feathergraphy2.ttf');
+}
+@font-face{
+	font-family: 'text-1';
+	src: url('../fonts/font1443/The_Black_Box-FFP.ttf');
+}
+
+*{padding: 0;margin: 0;}
+html,body{
+	height: 100%;
+	width: 1535px;
+	overflow-y: hidden;
+	webkit-font-smoothing: antialiased;
+	background: rgba(0,0,0,.2);
+}
+
+/* 全体包裹盒子 */
+.container{
+	position: relative;
+	height: 100%;
+	width: 1535px;
+	background: white;
+}
+/* 滚动单屏样式 */
+.scroll-content{
+	position: relative;
+	height: 90%;
+	width: 1520px; /* 设置具体的宽度改变浏览器宽度不影响内容 */
+	margin: 0 auto;
+}
+/* 滚动单屏的公共样式*/
+.scroll-content > div{
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+@media screen and (max-width:1000px){
+	.scroll-content{
+		width: 1000px;
+	}
+}
+.content0,.content1,.content2{
+	background: #fff;
+}
+.content1{
+	background: #333;
+}
+.content2{
+	background: gold;
+}

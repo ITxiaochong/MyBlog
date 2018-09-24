@@ -3,62 +3,76 @@
 <head>
 	<meta charset="UTF-8">
 	<title>MyBlog</title>
-	<link rel="stylesheet" href="./css/main.css">
+	<link rel="stylesheet" href="./css/font-awesome.css">
+	<link rel="stylesheet" href="./css/Common.css">
+	<link rel="stylesheet" href="./css/header.css">
+	<link rel="stylesheet" href="./css/windows.css">
+	<link rel="stylesheet" href="./css/MyInfo.css">
 	<script src="./js/jquery.js"></script>
 </head>
 <body>
 	<div class="container">
+		<!-- 屏障上线的话通过js动态生成 -->
 		<div class="header-barrier"></div>
+		<div class="mask container-mask"></div>
+		<div class="mask myinfo-mask"></div>
+		<div class="mask myblog-mask"></div>
+		<div class="mask myorder-mask"></div>
+
 		<header class="header" ondragstart="return false;">
 			<div class="header-title">
-				<input type="radio" class="Myinfo" name="h-picker-choice" id="Myinfo" checked="checked">
+				<input type="radio" class="h-title Myinfo" name="h-picker-choice" id="Myinfo" checked="checked">
 				<span>MyInfo</span>
-				<input type="radio" class="Myblog" name="h-picker-choice" id="Myblog">
+				<input type="radio" class="h-title Myblog" name="h-picker-choice" id="Myblog">
 				<span>MyBlog</span>
-				<input type="radio" class="Myorder" name="h-picker-choice" id="Myorder">
+				<input type="radio" class="h-title Myorder" name="h-picker-choice" id="Myorder">
 				<span>MyOrder</span>
+				<input type="checkbox" name="header-music" id="header-music" checked="checked">
+				<span id="mymusic">♬</span>
 			</div>
 			<div class="header-search">
 				<input type="text" name="search" id="search-all">
-				<span>
-					Search
-				</span>
+				<span class="fa fa-search" id="search-all-icon"></span>
 			</div>
+			<div class="time-clock">22 : 54</div>
+			
 			<div class="logOreg">
-				<span class="log">
-					Login/
+				<span class="log" id="log">
+					登入/
 				</span>
-				<span class="register">
-					Register
+				<span class="register" id="register">
+					注册
 				</span>
 			</div>
 		</header>
 		
 		<div class="scroll-content">
-			<div class="content content0" id="pg-Myinfo">
-				<div class="content0-left">
-					<ul class="content0-lists">
-						<li class="lists-info-0">个人资料</li>
-						<li class="lists-info-1">订阅信息</li>
-						<li class="lists-info-2">最近浏览</li>
-						<div class="content0-left-line" style="height:3px;border-radius: 3px;background: #f0f1f1;"></div>
-						<li class="lists-info-3">我的粉丝</li>
-						<li class="lists-info-4">我的博客</li>
-						<li class="lists-info-5">我的下载</li>
-						<li class="lists-info-6">我的评论</li>
-						<li class="lists-info-7">我的关注</li>
-					</ul>
-				</div>
-				<div class="content0-right">
-					
+			<div class="content content0" id="pg-Myinfo" data-react="1">
+				<div class="content0-container">
+					<div class="content0-left">
+						<ul class="content0-lists">
+							<li class="lists-info-0" data-react="1">个人资料</li>
+							<li class="lists-info-1" data-react="0">订阅信息</li>
+							<li class="lists-info-2" data-react="0">最近浏览</li>
+							<div class="content0-left-line" style="height:5px;border-radius: 3px;background: #f0f1f1;"></div>
+							<li class="lists-info-3" data-react="0">我的粉丝</li>
+							<li class="lists-info-4" data-react="0">我的博客</li>
+							<li class="lists-info-5" data-react="0">我的下载</li>
+							<li class="lists-info-6" data-react="0">我的评论</li>
+							<li class="lists-info-7" data-react="0">我的关注</li>
+						</ul>
+					</div>
+					<div class="content0-right">
+						
+					</div>
 				</div>
 			</div>
-			<div class="content content1" id="pg-Myblog">
+			<div class="content content1" id="pg-Myblog" data-react="0">
 				<header class="content1-header"></header>
 				<section class="content1-section"></section>
 				<footer class="content1-footer"></footer>
 			</div>
-			<div class="content content2" id="pg-Myorder">
+			<div class="content content2" id="pg-Myorder" data-react="0">
 				<header class="content2-header"></header>
 				<section class="content2-section"></section>
 				<footer class="content2-footer"></footer>
@@ -66,8 +80,48 @@
 		</div>
 		
 		<footer class="footer"></footer>
+			<div class="windows-myinfo">
+				<div class="logOreg-panel">
+					<div class="lr-panel-icon">
+						<span class="log-icon lr-icon-click lr-icon-move0" data-react="0">Log</span>
+						<span class="reg-icon" data-react="0">Reg</span>
+					</div>
+					<div class="lr-panel-close">
+						<span class="fa fa-close"></span>
+					</div>
+					<div class="lr-panel lr-panel0" data-react="0">
+						<header class="lr-panel0-header">
+							<span class="lr-panel0-brand">Login</span>
+						</header>
+						<section class="lr-panel0-body" id="lr0-body">
+							<span class="fa fa-user"></span>
+							<span class="fa fa-keyboard-o"></span>
+							<span class="log-text">Order by Plog...</span>
+							<input type="text" name="username" id="username" maxlength="24" autocomplete="off" autofocus placeholder="Account">
+							<input type="password" name="password" id="password" autocomplete="off" autofocus placeholder="Password" maxlength="24">
+							<input type="checkbox" name="login">
+							<button id="submit">Comin</button>
+						</section>
+						<footer class="lr-panel0-footer">
+							<span>Welcome back here! Thanks for your coming</span>
+						</footer>
+					</div>
+					<div class="lr-panel lr-panel1" data-react="0">
+						<header class="lr-panel1-header">
+
+						</header>
+						<section class="lr-panel1-body" id="lr1-body">
+
+						</section>
+						<footer class="lr-panel1-footer">
+
+						</footer>
+					</div>
+				</div>
+			</div>
 	</div>
 
-	<script src="./js/index.js"></script>
+	<script src="./js/controls.js"></script>
+	<script src="./js/windows.js"></script>
 </body>
 </html>

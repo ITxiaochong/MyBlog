@@ -1,0 +1,168 @@
+/* 全体头部 */
+.header{
+	position: relative;
+	user-select: none;
+	height: 10%;
+	border-bottom: 10px solid rgba(0, 0, 0, .5);
+	border-bottom-right-radius: 50%;
+	border-bottom-left-radius: 50%;
+	background: #f5f5f5;
+	z-index: 110;
+}
+/* 头部遮挡栏防止页面bottom剩余覆盖 */
+.header-barrier{
+   position: absolute;
+   z-index:98;
+   background: #fff;
+   height: 11.1vh;
+   width: 100%;
+   top: 0;
+}
+/* 全体头部的具体样式 */
+.header-title {
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+input[name="h-picker-choice"]{
+	height: 12vh;
+	width: 16vh;
+	opacity: 0;
+	z-index: 1;
+	cursor: pointer;
+}
+input[name="h-picker-choice"] ~ span{
+	font-family: 'title-1';
+	font-size: 44px;
+	line-height: 12vh;
+	text-decoration: none;
+}
+.Myinfo,.Myblog,.Myorder,input[name="h-picker-choice"] ~ span{
+	position: absolute;
+}
+.Myinfo,.Myinfo + span{
+	bottom: 2px;
+	left: 100px;
+}
+.Myblog,.Myblog + span{
+	bottom: -8px;
+	left: 280px;
+}
+.Myorder,.Myorder + span{
+	left: 460px;
+}
+/* 当头部选择有点击或者划过的样式 */
+input[name="h-picker-choice"]:checked + span{
+	transform: scale(1.1);
+	color:#4872a3;
+	transition: transform .6s linear;
+}
+input[name="h-picker-choice"]:hover + span{
+	transform: scale(1.1);
+	transition: transform .3s linear;
+}
+/* 全体头部的搜索栏样式 */
+.header-search{
+	padding:10px ;
+	box-sizing: border-box;
+	position: absolute;
+	bottom: 10%;
+	height: 55px;
+	left: 44%;
+}
+input[name="search"]{
+	font-family: '宋体';
+	outline-style: none;
+	height: 30px;
+	width: 160px;
+	font-size: 16px;
+	padding: 6px;
+	box-sizing: border-box;
+	box-shadow: 0 0 10px silver inset;
+	transition: all .2s ease-out;
+	border-radius: 4px;
+}
+/* 搜索小图样式设置 */
+#search-all-icon{
+	position: relative;
+	left: -28px;
+	font-size: 19px;
+	color: rgba(0,0,0,.7);
+	transition: all .3s linear;
+}
+input[name="search"]:focus{
+	transform: scale(1.1);
+	width: 170px;
+	font-size: 16px;
+	padding-right:22px;
+	transition: all .3s linear;
+}
+input[name="search"]:focus + #search-all-icon{
+	color: silver;
+	left: -18px;
+}
+/* 全体头部电子表 */
+.time-clock{
+	position: absolute;
+	bottom: 4px;
+	right: 440px;
+	line-height: 65px;
+	width: 150px;
+	height: 64px;
+	text-align: center;
+	box-shadow: 5px 2px 10px silver inset;
+	text-shadow: 8px 8px 20px #333;
+	border-radius: 32%;
+	border: 1px solid silver;
+	background-color: #e9e7e7;
+	font-size: 42px;
+	font-family: 'title-1';
+}
+/* 屏幕宽度小于1000时将全体头部微调 */
+@media screen and (max-width:1000px){
+	.header-search{
+		left: 40%;
+	}
+	.time-clock{
+		display: none;
+	}
+}
+/* 全体头部音乐按钮样式*/
+input[name="header-music"],#mymusic{
+	position: absolute;
+	left: 0px;
+	top: 10px;
+}
+input[name="header-music"]{
+	height: 7vh;
+	width: 7vh;
+	z-index: 102;
+	opacity: 0;
+}
+input[name="header-music"]:checked + span{
+	animation: music 1s infinite  alternate linear;
+}
+@keyframes music{
+	from{color:#4872a3;text-shadow: 2px 3px 10px #333;transform: rotate(-25deg) scale(1.1);}
+	to{color: #10C91F;text-shadow:-3px -3px 12px violet;transform: rotate(25deg) scale(1.4);}
+}
+
+/* 全体头部登陆注册的样式 */
+.logOreg{
+	font-family: '宋体';
+	position: absolute;
+	z-index: 10px;
+	line-height: 21px;
+	right: 10px;
+	bottom: 40%;
+	font-size: 1.2em;
+	color: grey;
+}
+/* 点击/划过登陆和注册时的动态样式 */
+.log,.register{
+	cursor: pointer;
+}
+.log:hover,.register:hover{
+	font-size: 20px;
+	color: #6DBF13;
+}
