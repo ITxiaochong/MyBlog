@@ -3,16 +3,14 @@
  * Description: 该文件是Client的主要控制脚本
  */
 
-
-
 /**
  * [全局的变量和常量]
  */
-const inputs = document.getElementsByClassName('h-title');
-const scrollContent = document.getElementsByClassName('scroll-content')[0];
-const pages = $('.content');
-const music = $('#header-music');
-const lis = $('.content0-lists>li');
+var inputs = document.getElementsByClassName('h-title');
+var scrollContent = document.getElementsByClassName('scroll-content')[0];
+var pages = $('.content');
+var music = $('#header-music');
+var lis = $('.content0-lists>li');
 
 /*****************************************************************************/
 /**
@@ -63,11 +61,11 @@ lis.mouseleave(function(ev2){
  * [头部电子表js]
  */ 
 setInterval(function Mytime(){
-	let time = new Date();
-	let hh = time.getHours();
-	let mm = time.getMinutes();
+	var time = new Date();
+	var hh = time.getHours();
+	var mm = time.getMinutes();
 	if(mm<10) mm = '0'+mm;
-	let res = hh+' : '+mm;
+	var res = hh+' : '+mm;
 	$('.time-clock').text(res);
 },1000);
 

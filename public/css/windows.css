@@ -29,7 +29,8 @@
 	position: absolute;
 	top: 20%;
 	left: 38%;
-	background: #f0f1f1;
+	/* background: #f0f1f1; */
+	background: #C5C1C0;
 	width: 360px;
 	height: 420px;
 	border-radius: 4%;
@@ -51,6 +52,7 @@
 	cursor: pointer;
 }
 .log-icon,.reg-icon{
+	position: relative;
 	display: inline-block;
 	width: 50%;
 	height: 42px;
@@ -60,16 +62,18 @@
 	text-align: center;
 }
 .log-icon{
+	left: -20%;
 	background: #f0f1f1;
-	border-radius:54% 10% 0 0;
+	border-radius: 54% 30% 0 12%;
 }
 .reg-icon{
+	right: -24%;
 	background: #f0f1f1;
-	border-radius:10% 54% 0 0;
+	border-radius:30% 54% 12% 0;
 }
 /* 配合js控制log-icon点击样式 */
 .lr-icon-click{
-	
+
 	font-size: 20px;
 	color: green;
 	box-shadow: 3px -2px 10px #eee;
@@ -96,7 +100,7 @@
 	text-align: center;
 }
 .lr-panel-close>span{
-	font-size: 24px;	
+	font-size: 24px;
 }
 .lr-panel-close>span:hover{
 	transform: scale(1.2);
@@ -104,29 +108,45 @@
 	cursor: pointer;
 }
 /* 登陆面板身体部分的细分样式 */
+.lr-panel0{
+	position: relative;
+	/* display: none; */
+	z-index: 0;
+}
 .lr-panel1{
+	position: relative;
 	display: none;
+	z-index: 0;
 }
 /* 头部 */
 .lr-panel0-header{
 	position: relative;
+	z-index: 1;
 	width: 94%;
-	margin: 10px auto 0;
 	height: 60px;
+	margin: 10px auto 0px;
 	border-radius: 13px 13px 0 0;
 	background: #333;
+	text-overflow:clip;
 }
-.lr-panel0-brand{
+.lr-panel0-brand,.lr-panel1-brand{
+	position: relative;
+	top: 10px;
 	display: block;
 	width: 100%;
-	height: 60px;
-	line-height: 70px;
+	height: 30px;
+	line-height: 40px;
 	font-family: 'title-1';
-	font-size: 48px;
+	font-size: 46px;
 	color: silver;
 	text-align: center;
 }
-/* 身体 */
+.lr-panel1-brand{
+	font-size: 43px;
+	line-height: 40px;
+	color: #eee;
+}
+/* 登录/注册框身体 */
 .lr-panel0-body{
 	position: relative;
 	width: 94%;
@@ -159,7 +179,8 @@
 	font-family: 'title-1';
 	font-size: 18px;
 }
-#username{
+
+#username,#reg-username{
 	position: absolute;
 	top: 45px;
 	left: 50px;
@@ -169,36 +190,43 @@
 	color: white;
 	background: rgba(0,0,0,0);
 	border: 0;
-	border-bottom: 2px solid white;
-	border-radius: 3px;
+	border-bottom: 2px solid silver;
+	border-radius: 4px;
 	outline-style: none;
 	padding-left: 10px;
 	width: 235px;
+	user-select: none;
 }
-#password{
+#password,#reg-password{
 	position: absolute;
 	top: 140px;
 	left: 50px;
 	display: block;
 	height: 30px;
 	font-size: 20px;
-	color: white;
+	color: #37686D;
 	background: rgba(0,0,0,0);
 	border: 0;
-	border-bottom: 2px solid white;
-	border-radius: 3px;
+	border-bottom: 2px solid silver;
+	border-radius: 4px;
 	outline-style: none;
 	padding-left: 10px;
-	width: 235px;
+	user-select: none;
+	width: 250px;
+}
+/* 录入密码和账号时的动态样式 */
+#username:focus,#password:focus{
+	border-bottom: 1px solid #eee;
+	transform: scale(1.04) translate(8px,2px);
+	transition:all .3s ease-in-out;
 }
 input[name="login"]{
 	position: absolute;
 	top: 200px;
 	left: 10px;
 	display: block;
-	height:20px;
-	width: 20px;
-	
+	height:16px;
+	width: 16px;
 }
 /* 尾部 */
 .lr-panel0-footer{
@@ -210,12 +238,13 @@ input[name="login"]{
 	text-align: center;
 	color: grey;
 	background: #333;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
 }
-#submit{
+#submit,#reg-submit,#reg-clear{
 	position: absolute;
 	bottom: 20px;
 	right: 60px;
-	/* border: 0; */
 	border-radius: 14px;
 	outline-style: none;
 	font-family: 'title-1';
@@ -224,22 +253,222 @@ input[name="login"]{
 	height: 30px;
 	line-height: 35px;
 }
+#reg-submit,#reg-clear{
+	font-size: 26px;
+	width: 100px;
+	height: 34px;
+	background: silver;
+	bottom: 10px;
+	right: 60px;
+}
+#reg-clear{
+	bottom: 10px;
+	left: 55px;
+}
 /* 注册面板身体部分的细节样式 */
 .lr-panel1-header{
+	position: relative;
 	width: 94%;
-	margin: 10px auto 0;
 	height: 60px;
-	background: red;
+	margin: 10px auto 0;
+	border-radius: 13px 13px 0 0;
+	background: #4872a3;
 }
 .lr-panel1-body{
+	position: relative;
 	width: 94%;
 	height: 290px;
 	margin: 0 auto;
-	background: green;
+	background: #e3e36c;
+	color: silver;
 }
+#reg-username{
+	width: 260px;
+	top: 20px;
+	left: 40px;
+	color: #444;
+	font-size: 19px;
+	padding-right:30px;
+	box-sizing: border-box;
+}
+#reg-password{
+	top: 80px;
+	left: 40px;
+	color: #333;
+	font-size: 19px;
+}
+input[name="repassword"]{
+	position: absolute;
+	top: 136px;
+	left: 40px;
+	display: block;
+	height: 30px;
+	font-size: 19px;
+	color: #37686D;
+	background: rgba(0,0,0,0);
+	border: 0;
+	border-bottom: 2px solid silver;
+	border-radius: 4px;
+	outline-style: none;
+	padding-left: 10px;
+	user-select: none;
+	width: 250px;
+}
+.lr-panel1-body > .reg-text{
+	position: absolute;
+	left: 35px;
+	top: 195px;
+	display: block;
+	color: #555;
+	font-family: 'title-1';
+	font-size: 18px;
+}
+
+input[name="register"]{
+	position: absolute;
+	top: 200px;
+	left: 10px;
+	display: block;
+	height:16px;
+	width: 16px;
+}
+
+/* lr-panel1 input框聚焦样式 */
+#reg-username:focus,#reg-password:focus,input[name="repassword"]:focus{
+	background: rgba(0,0,0,.1);
+	transform: scale(1.03);
+	transition: transform .3s ease-in-out
+}
+/* lr-panel1-footer样式 */
 .lr-panel1-footer{
 	width: 94%;
 	height: 50px;
 	margin: 0 auto;
-	background: white;
+	font-family: 'text-1';
+	font-size: 38px;
+	text-align: center;
+	color: #555;
+	background: #e3e36c;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+
+}
+/* 判断注册icon */
+.right-icon{
+	position: absolute;
+	left: 275px;
+	z-index: 0;
+	display: block;
+	color: grey;
+	font-size: 18px;
+}
+.right-icon0{
+	top: 30px;
+}
+.right-icon1{
+	top: 90px;
+}
+.right-icon2{
+	top: 144px;
+}
+
+/* 验证框样式 */
+.lr-panel2{
+	position: absolute;
+	top: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+}
+.lr-panel2-body{
+	display: relative;
+	margin: 10px auto 0;
+	height: 280px;
+	width: 94%;
+	border-radius: 4% 4% 0 0;
+	background: #f0f1f1;
+
+}
+.lr-panel2-footer{
+	display: relative;
+	margin: 0 auto;
+	height: 120px;
+	width: 94%;
+	border-radius:  0 0 3% 3%;
+	background: #444;
+}
+
+/* 登录验证滑条 */
+#lr-verify2{
+	position: relative;
+	top: 20px;
+	left: 18px;
+	background: #D7CFCF;
+	width: 90%;
+	height: 38px;
+}
+.slide-bg{
+	position: absolute;
+	top:0;
+	background: #8CDDF8;
+	width: 42px;
+	height: 38px;
+}
+.slide-text{
+	position: absolute;
+	top: 0;
+	font-family: '宋体';
+	font-size: 19px;
+	width: 100%;
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+}
+.slide-btn{
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	width: 43px;
+	height: 38px;
+	background: #f0f1f1;
+	font-size: 18px;
+	line-height: 34px;
+	color: #666;
+	text-align: center;
+	cursor:move;
+	border: 1px solid grey;
+	border-radius: 4px;
+	box-shadow: -1px 2px 15px #444,0 0 3px rgba(0,0,0,.4) inset;
+	user-select: none;
+}
+/* 注册/登录提示显示弹窗 */
+#pop-window{
+	position: absolute;
+	top: 75px;
+	left: 8.5%;
+	z-index: 1;
+	display: none;
+	box-sizing: border-box;
+	border-radius:10px;
+	box-shadow: 1px 1px 8px grey;
+	height: 140px;
+	width: 300px;
+	padding: 40px 20px 10px;
+	background: rgba(0,0,0,.8);
+	font-family: '宋体';
+	font-size: 20px;
+	font-weight: 400;
+	color: white;
+	text-align: center;
+	vertical-align: center;
+	transition: all 1.5s linear;
+	line-height: 18px;
+}
+.info-blue{
+	color: #4872a3;
+	font-size: 38px;
+}
+.info-green{
+	color: #2BAD2B;
+	font-size: 38px;
 }

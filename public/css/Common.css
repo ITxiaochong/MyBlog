@@ -13,7 +13,6 @@ html,body{
 	height: 100%;
 	width: 1535px;
 	overflow-y: hidden;
-	webkit-font-smoothing: antialiased;
 	background: rgba(0,0,0,.2);
 }
 
