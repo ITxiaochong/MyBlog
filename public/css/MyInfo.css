@@ -1,12 +1,10 @@
 /* 滚动单屏1的区分样式 */
 
-.content0{
-	font-size: 0px; /* 解决inline-block的空格问题 */
-}
 .content0-container{
 	width: 100%;
 	height: 100%;
 	margin: 0 auto;
+
 }
 /* 滚动单屏1左侧 */
 .content0-left{
@@ -14,15 +12,10 @@
 	background: #fff;
 	display: inline-block;
 	vertical-align: top;
-	margin-left: 5%;
+	margin-top: 30px;
+	margin-left: 1%;
 	width: 13%;
 	height: 45%;
-}
-/* 该页屏幕宽度小于1000隐藏左边栏 */
-@media screen and (max-width: 1000px){
-	.content0-left{
-		display: none;
-	}
 }
 /* page1左侧的列表 */
 .content0-lists{
@@ -50,17 +43,11 @@
 .content0-right{
 	position: relative;
 	display: inline-block;
-	overflow-y: hidden;
-	width: 75%;
-	height: 95%;
-	margin-left: .8%;
+	width: 1200px;
+	height: 700px;
+	margin-top: 10px;
+	margin-left: 2%;
 	box-sizing: border-box;
 	box-shadow: 4px 2px 20px silver;
 	background: #fff;
-}
-@media screen and (max-width: 1000px){
-	.content0-right{
-		height: 100%;
-		width: 940px;
-	}
 }

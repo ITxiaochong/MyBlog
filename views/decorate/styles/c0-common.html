@@ -1,0 +1,133 @@
+{% block css %}
+{% include "c0-window.html" %}
+{% block window %}{% endblock %}
+
+<style>
+    /* myinfo个人信息面板 */
+    .content0-right-panel{
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    .content0-right-panel > .panels{
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
+    /* panle0 */
+    .panel0{
+        position: relative;
+        font-size: 18px;
+    }
+    /* panel0-title */
+    .panel0-title{
+        height: 22px;
+        background: #333;
+    }
+    .panel0-title+.title{
+        user-select: none;
+        position: absolute;
+        top: 30px;
+        right: 0;
+        display: inline-block;
+        width: 80%;
+        height: 70px;
+        line-height: 100px;
+        border-bottom: 2px solid #333;
+        border-radius: 6px;
+        padding-left: 0px;
+        box-sizing: border-box;
+        font-family: '宋体';
+        font-size: 30px;
+        text-decoration: underline;
+        letter-spacing: 20px;
+    }
+    /* 头像 */
+    #myinfo-head{
+        position: absolute;
+        top: 45px;
+        left: 30px;
+    }
+    #myinfo-head,#myinfo-head > img{
+        box-shadow: 1px 1px 16px silver;
+        border-radius: 3%;
+        box-sizing: border-box;
+        height: 170px;
+        width: 170px;
+        user-select: none;
+    }
+    .change-head{
+        position: absolute;
+        right: 36px;
+        bottom: 20px;
+        opacity: 0;
+        display: inline-block;
+        width: 100px;
+        height: 28px;
+        text-align: center;
+        line-height: 28px;
+        user-select: none;
+        font-family:'宋体','微软雅黑';
+    }
+   #myinfo-head:hover .change-head{
+        opacity: 2;
+        transform: scale(1.1);
+        transition: opacity .5s linear;
+    }
+    /* 个人信息样式 */
+    .badge-box{
+        position: relative;
+        margin-top: 100px;
+        margin-left: 255px;
+        height: 100px;
+        width: 600px;
+        border-bottom: 1.2px solid #f0f1f1;
+        z-index: 100;
+    }
+    /* 基本系统信息 */
+    .badge-id{
+        top: 0;
+        left: 10px;
+    }
+    .badge-focus{
+        top: 0;
+        left: 142px;
+    }
+    .badge-account{
+        bottom: 5px;
+        left: 10px;
+        width: 190px;
+    }
+    .badge-stars{
+        top: 0;
+        left: 250px;
+    }
+    .badge-stars,.badge-id,.badge-focus,.badge-account{
+        position: absolute;
+        height: 28px;
+        line-height: 22px;
+        font-size: 16px;
+        border-radius: 2px;
+        font-family: 'sans-serif';
+    }
+    /* 详细资料包裹 */
+    .container{
+        margin-top:50px;
+        margin-left:250px;
+        width: 60%;
+        font-family: '宋体';
+        user-select: none;
+    }
+    .infos-row{
+        height: 60px;
+        font-size: 22px;
+    }
+    /* 更改个人信息按钮 */
+    .change-info{
+        position: absolute;
+        top: 180px;
+        left: 42%;
+        z-index: 100;
+    }
+</style>
+{% endblock %}

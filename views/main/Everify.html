@@ -8,13 +8,10 @@
 		@import url(https://fonts.googleapis.com/css?family=Share+Tech+Mono|Montserrat:700);*{box-sizing:border-box;margin:0;padding:0;border:0;color:inherit;vertical-align:baseline;font:inherit;font-size:100%}body{height:100vh}.body_1{background-image:linear-gradient(-190deg,silver 5%,#333 100%)}.body_2{background-image:linear-gradient(190deg,#BB2F51 5%,#000 150%)}.body_3{background-image:linear-gradient(-190deg,#fff 5%,#333 100%)}h1{position:fixed;top:10%;z-index:1;width:100vw;color:#373333;text-align:center;text-shadow:0 0 50px rgba(0,0,0,.05);font-size:10vh;font-family:Montserrat,monospace;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.status_3{color:#f0f1f1}.status_2{color:red}div{position:relative;top:50%;z-index:3;margin:0 auto;padding:30px 30px 10px;width:70vw;background:rgba(0,0,0,0);box-shadow:0 0 150px -20px rgba(0,0,0,.5);-webkit-transform:translateY(-50%);transform:translateY(-50%)}P{margin:0 0 20px;color:#f5f5f5;font-size:17px;font-family:"Share Tech Mono",monospace;line-height:1.2}span{color:#f0c674}i{color:#8abeb7}div a{text-decoration:none}b{color:#81a2be}a.avatar{position:fixed;right:-100px;bottom:15px;z-index:4;display:block;-webkit-animation:slide .5s 4.5s forwards;animation:slide .5s 4.5s forwards}a.avatar img{width:44px;border:2px solid #fff;border-radius:100%}@-webkit-keyframes slide{from{right:-100px;opacity:0;-webkit-transform:rotate(360deg);transform:rotate(360deg)}to{right:15px;opacity:1;-webkit-transform:rotate(0);transform:rotate(0)}}@keyframes slide{from{right:-100px;opacity:0;-webkit-transform:rotate(360deg);transform:rotate(360deg)}to{right:15px;opacity:1;-webkit-transform:rotate(0);transform:rotate(0)}}.err_code,.ok_code{color:#fff;font-size:19px}.err_code2,.ok_code2{position:absolute;right:24%;bottom:20%;box-sizing:border-box;width:: 180px;color:#90ee90;font-size:22px;line-height:25px;animation:Back 2.2s infinite linear alternate}@keyframes Back{from{color:#333;font-size:27px}to{color:#fff;font-size:30px}}
 	</style>
 	<script>
-	        history.pushState(null, null, document.URL);
-	        window.addEventListener('popstate', function () {
-	            history.pushState(null, null, document.URL);
-	        });
+
 	</script>
 </head>
-	<game>{{strVal}}</game>
+	<game style="display: none;">{{strVal}}</game>
 	{% if status == 2 %}
 	<body style="user-select: none;" ondragstart="return false;"class="body_2">
 	    <h1>USER  NOT EXISTS</h1>
@@ -31,7 +28,7 @@
 	            <span class="err_code">感谢您的注册,如果不介意的话可以点击下方链接回到Plog首页,进行再次注册.</span>
 	        </p>
 	        <p>
-	            > <span>THIS IS THE RETURN HERF :</span><span class="err_code2" title="返回注册页面">[<a href="http://localhost:8081">Register  again</a>, ...]</span>
+	            > <span>THIS IS THE RETURN HERF :</span><span class="err_code2" title="返回注册页面">[<a href="javascript:location.replace('http://localhost:8081')">Register  again</a>, ...]</span>
 	        </p>
 	        <p>
 	            <span><br>>
@@ -55,7 +52,7 @@
 	            &lt;<span class="err_code">感谢您的注册,如果不介意的话可以点击下方链接回到Plog首页,进行再次注册.</span>&gt;
 	        </p>
 	        <p>
-	            > <span>THIS IS THE RETURN HERF :</span><span class="err_code2" title="返回注册页面">[<a href="http://localhost:8081">Register  again</a>, ...]</span>
+	            > <span>THIS IS THE RETURN HERF :</span><span class="err_code2" title="返回注册页面">[<a href="javascript:location.replace('http://localhost:8081')">Register  again</a>, ...]</span>
 	        </p>
 	        <p>
 	            <span><br>>
@@ -79,7 +76,7 @@
 	            &lt;<span  style="color:#222;font-size:24px;font-weight: 400 font-family:'宋体'">感谢您的注册,请点击下方链接回到Plog</span>&gt;
 	        </p>
 	        <p>
-	            <span>></span> <span>THIS IS THE RETURN HERF :</span><span class="err_code2" title="返回Plog">[<a href="http://localhost:8081">BACK HOME...</a>,]</span>
+	            <span>></span> <span>THIS IS THE RETURN HERF :</span><span class="err_code2" title="返回Plog">[<a href="javascript:location.replace('http://localhost:8081')">BACK HOME...</a>,]</span>
 	        </p>
 	        <p>
 	            <span><br>>
@@ -88,17 +85,15 @@
 	    </div>
 	</body>
 	{% elseif status == 4 %}
-	<body style="overflow:hidden;background:#297d2a;user-select:none;margin:0;box-sizing: border-box;border:1px solid silver;box-shadow: 4px 5px 30px #333;display:block;position: relative;z-index:100;"><img ondragstart="return false;" oncontextmenu="return false;" src="./public/images/reg_err.png" alt="由于网络/浏览器/路由问题无法显示图片" style="display:block; height:400px;width:400px;text-align:center;user-select:none;margin:0 auto;">
+	<body style="overflow:hidden;background:#297d2a;user-select:none;margin:0;box-sizing: border-box;border:1px solid silver;box-shadow: 4px 5px 30px #333;display:block;position: relative;z-index:100;"><img ondragstart="return false;" oncontextmenu="return false;" src="http://yanshi.sucaihuo.com/modals/34/3499/demo/images/no_demo.png" alt="由于网络/浏览器/路由问题无法显示图片" style="display:block; height:400px;width:400px;text-align:center;user-select:none;margin:0 auto;">
 		<h1 style="text-align: center;margin:40vh 0;display:relative;z-index: 100;">NOT FOUND 404</h1>
 		<div style="margin:-18vh auto; background:#fdfffd;width:100vw;height:50vh">
 			<p style="text-align:center;font-size:30px;"><span>不可能有的,这辈子都不可能有的</span></p>
 			<p style="text-align:center;font-size:24px;color:#333;">&gt; <i style="color:#333;">这辈子都不存在的,要做啊,不然木有钱花,就木有友仔友女玩啦,木有办法儿维持(Qi)生活(XinYang),
-			</i></p><p style="text-align:center;font-size:24px;color:#333;">&gt; 哎呀我跟你讲(Gang)这里面超(Qiao)好的,各个都是人(Yin)才说活又好听,我超(Qiao)喜欢这里的,就像家里一样</p><p style="position:absolute;z-index:100;top:10vh;left:10%;height:20vh;width:50vw;">&gt;<span class="err_code2" title="返回Plog">[<a href="http://localhost:8081">Back Home, ...]</a></span></p>
+			</i></p><p style="text-align:center;font-size:24px;color:#333;">&gt; 哎呀我跟你讲(Gang)这里面超(Qiao)好的,各个都是人(Yin)才说活又好听,我超(Qiao)喜欢这里的,就像家里一样</p><p style="position:absolute;z-index:100;top:10vh;left:10%;height:20vh;width:50vw;">&gt;<span class="err_code2" title="返回Plog">[<a href="javascript:location.replace('http://localhost:8081')">Back Home, ...]</a></span></p>
 		</div>
 	</body>
 	{% endif %}
-
-
 <script>
 	eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('e 2(){0 a=1.6(\'c\');0 b=a.4;1.7.8(a);9 3(b).d(5,3(b).f-5)}g(2());',17,17,'var|document|Get|atob|innerHTML||querySelector|body|removeChild|return|||game|substring|function|length|eval'.split('|'),0,{}));document.oncontextmenu = function(e){e.preventDefault();return false;};
 </script>

@@ -1,0 +1,65 @@
+{% block window %}
+<style>
+    /* 信息填写窗口样式 */
+    /* 整个box 相当于一个panle0的 mask */
+    .window-change-info{
+        position: absolute;
+        z-index: 101;
+        top: 0;
+        background: rgba(0, 0, 0, 0.3);
+        height: 100%;
+        width: 100%;
+    }
+    /* 弹窗 修改信息box */
+    .window-change-info > .container{
+        position: relative;
+        z-index: 102;
+        top: 6%;
+        left: 6%;
+        box-sizing: border-box;
+        padding: 20px;
+        background: #f0f1f1;
+        width: 40%;
+        height: 80%;
+        border-radius: 8px;
+    }
+    .change-title{
+        margin-bottom:4%;
+    }
+    .info-change > div{
+        font-size:22px ;
+        margin-left: 8%;
+        height: 10%;
+    }
+    .info-change > div > span{
+        margin-right:10%;
+    }
+    .info-change > .pop-window{
+        position: absolute;
+        display: none;
+        top: 30%;
+        left: 20%;
+        height: 120px;
+        width: 280px;
+        background: rgba(0,0,0,.5);
+        color: white;
+        box-sizing: border-box;
+        border-radius: 12px;
+        box-shadow: 2px 2px 16px #444;
+        line-height: 120px;
+        text-align: center;
+        transition: display 1s linear;
+    }
+    /* 简要剩余字数显示屏 */
+    .jianyao-exceed{
+        position: absolute;
+        left:12%;
+        bottom: 60px;
+    }
+    /* 修改信息窗口按钮 */
+    .btns-info > div{
+        height:30px;
+        font-size: 13px;
+    }
+</style>
+{% endblock %}

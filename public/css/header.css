@@ -3,13 +3,12 @@
 	position: relative;
 	user-select: none;
 	height: 10%;
-	border-bottom: 10px solid rgba(0, 0, 0, .5);
-	border-bottom-right-radius: 50%;
-	border-bottom-left-radius: 50%;
-	background: #f5f5f5;
+	border-bottom-right-radius:10px;
+	border-bottom-left-radius: 10px;
+	background: #444;
 	z-index: 110;
 }
-/* 头部遮挡栏防止页面bottom剩余覆盖 */
+/* 头部遮挡栏防止页面 bottom 剩余覆盖 */
 .header-barrier{
    position: absolute;
    z-index:98;
@@ -31,15 +30,12 @@ input[name="h-picker-choice"]{
 	z-index: 1;
 	cursor: pointer;
 }
-input[name="h-picker-choice"] ~ span{
-	font-family: 'title-1';
+input[name="h-picker-choice"] ~ span{font-family:'title-1';
 	font-size: 44px;
 	line-height: 12vh;
 	text-decoration: none;
 }
-.Myinfo,.Myblog,.Myorder,input[name="h-picker-choice"] ~ span{
-	position: absolute;
-}
+.Myinfo,.Myblog,.Myorder,input[name="h-picker-choice"] ~ span{position: absolute;}
 .Myinfo,.Myinfo + span{
 	bottom: 2px;
 	left: 100px;
@@ -48,17 +44,13 @@ input[name="h-picker-choice"] ~ span{
 	bottom: -8px;
 	left: 280px;
 }
-.Myorder,.Myorder + span{
-	left: 460px;
-}
+.Myorder,.Myorder + span{left: 460px;}
 /* 当头部选择有点击或者划过的样式 */
-input[name="h-picker-choice"]:checked + span{
-	transform: scale(1.1);
+input[name="h-picker-choice"]:checked + span{transform: scale(1.1);
 	color:#4872a3;
 	transition: transform .6s linear;
 }
-input[name="h-picker-choice"]:hover + span{
-	transform: scale(1.1);
+input[name="h-picker-choice"]:hover + span{transform: scale(1.1);
 	transition: transform .3s linear;
 }
 /* 全体头部的搜索栏样式 */
@@ -70,8 +62,7 @@ input[name="h-picker-choice"]:hover + span{
 	height: 55px;
 	left: 44%;
 }
-input[name="search"]{
-	font-family: '宋体';
+input[name="search"]{font-family:' 宋体 ';
 	outline-style: none;
 	height: 30px;
 	width: 160px;
@@ -90,8 +81,7 @@ input[name="search"]{
 	color: rgba(0,0,0,.7);
 	transition: all .3s linear;
 }
-input[name="search"]:focus{
-	transform: scale(1.1);
+input[name="search"]:focus{transform: scale(1.1);
 	width: 170px;
 	font-size: 16px;
 	padding-right:22px;
@@ -118,16 +108,11 @@ input[name="search"]:focus + #search-all-icon{
 	font-size: 42px;
 	font-family: 'title-1';
 }
-/* 屏幕宽度小于1000时将全体头部微调 */
-@media screen and (max-width:1000px){
-	.header-search{
-		left: 40%;
-	}
-	.time-clock{
-		display: none;
-	}
+/* 屏幕宽度小于 1000 时将全体头部微调 */
+@media screen and (max-width:1000px){.header-search{left: 40%;}
+	.time-clock{display: none;}
 }
-/* 全体头部音乐按钮样式*/
+/* 全体头部音乐按钮样式 */
 input[name="header-music"],#mymusic{
 	position: absolute;
 	left: 0px;
@@ -139,17 +124,13 @@ input[name="header-music"]{
 	z-index: 102;
 	opacity: 0;
 }
-input[name="header-music"]:checked + span{
-	animation: music 1s infinite  alternate linear;
-}
-@keyframes music{
-	from{color:#4872a3;text-shadow: 2px 3px 10px #333;transform: rotate(-25deg) scale(1.1);}
+input[name="header-music"]:checked + span{animation: music 1s infinite  alternate linear;}
+@keyframes music{from{color:#4872a3;text-shadow: 2px 3px 10px #333;transform: rotate(-25deg) scale(1.1);}
 	to{color: #10C91F;text-shadow:-3px -3px 12px violet;transform: rotate(25deg) scale(1.4);}
 }
 
 /* 全体头部登陆注册的样式 */
-.logOreg{
-	font-family: '宋体';
+.logOreg{font-family:' 宋体 ';
 	position: absolute;
 	z-index: 10px;
 	line-height: 21px;
@@ -158,11 +139,24 @@ input[name="header-music"]:checked + span{
 	font-size: 1.2em;
 	color: grey;
 }
-/* 点击/划过登陆和注册时的动态样式 */
-.log,.register{
-	cursor: pointer;
-}
+/* 点击 / 划过登陆和注册时的动态样式 */
+.log,.register{cursor: pointer;}
 .log:hover,.register:hover{
 	font-size: 20px;
 	color: #6DBF13;
+}
+.img-head{
+	position: absolute;
+	top: 0;
+	right: 120px;
+	width:8vh;
+	height: 8vh;
+}
+.img-head > img{
+	border: 1px solid silver;
+	box-sizing: border-box;
+	box-shadow: 1px 2px 1px silver;
+	border-radius: 50%;
+	width: 8vh;
+	height: 8vh;
 }

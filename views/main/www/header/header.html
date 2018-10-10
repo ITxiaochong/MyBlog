@@ -1,0 +1,36 @@
+{% block header %}
+<header class="header" ondragstart="return false;">
+	<div class="header-title">
+		<input type="radio" class="h-title Myinfo" name="h-picker-choice" id="Myinfo" checked="checked">
+		<span>MyInfo</span>
+		<input type="radio" class="h-title Myblog" name="h-picker-choice" id="Myblog">
+		<span>MyBlog</span>
+		<input type="radio" class="h-title Myorder" name="h-picker-choice" id="Myorder">
+		<span>MyOrder</span>
+		<input type="checkbox" name="header-music" id="header-music" checked="checked">
+		<span id="mymusic" class="fa">♬</span>
+	</div>
+	<div class="header-search">
+		<input type="text" name="search" id="search-all" maxlength="28">
+		<span class="fa fa-search" id="search-all-icon"></span>
+	</div>
+	<div class="time-clock">22 : 54</div>
+	<div class="logOreg">
+	{% if logon == 0 %}
+		<span class="log" id="log">
+			登入/
+		</span>	
+		<span class="register" id="register">
+			注册
+		</span>
+	{% else %}
+		<span class="out" id="out">登退</span>
+	{% endif %}
+	</div>
+	{% if logon == 0 %}
+	<div class="img-head""><img src="./public/images/timg.jpg" alt="图像无法显示"></div>
+	{% else %}
+	<div class="img-head"><img src="./public/images/timg.jpg" alt="图像无法显示"></div>
+	{% endif %}
+</header>
+{% endblock %}

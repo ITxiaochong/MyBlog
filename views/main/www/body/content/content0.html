@@ -1,0 +1,102 @@
+{% block content0 %}
+<div class="content content0" id="pg-Myinfo" data-react="1">
+	<div class="content0-container">
+			<div class="content0-left">
+				<ul class="content0-lists">
+					<li class="lists-info-0" data-react="1">个人资料</li>
+					<li class="lists-info-1" data-react="0">订阅信息</li>
+					<li class="lists-info-2" data-react="0">最近浏览</li>
+					<div class="content0-left-line" style="height:5px;border-radius: 3px;background: #f0f1f1;"></div>
+					<li class="lists-info-3" data-react="0">我的粉丝</li>
+					<li class="lists-info-4" data-react="0">我的博客</li>
+					<li class="lists-info-5" data-react="0">我的下载</li>
+					<li class="lists-info-6" data-react="0">我的评论</li>
+					<li class="lists-info-7" data-react="0">我的关注</li>
+				</ul>
+			</div>
+			<div class="content0-right">
+				<div class="content0-right-panel">
+					<div class="panels panel0">
+						{% if logon == 1 %}
+						<div class="panel0-title"></div>
+						<div class="title">&nbsp;我的信息</div>
+						<div class="myinfo-head" id="myinfo-head" ondragstart="return false;">
+							<img src="./public/images/timg.jpg" alt="头像无法显示">
+							<div class="change-head">更换头像</div>
+						</div>
+						<div class="badge-box">
+							<span class="badge badge-default badge-id" title="登录凭证"><span style="color:#333;user-select:none;"><span class="fa fa-user"></span></span> 1234567</span>
+							<span class="badge badge-default badge-account" title="您注册的邮箱"><span style="color:#333;user-select:none;"><span class="fa fa-envelope" title="登录凭证"></span></span> 1061393710@qq.com</span>
+							<span class="badge badge-default badge-focus" title="关注"><span class="fa fa-commenting"></span><span style="color:#333;user-select:none;"> 12</span></span>
+							<span class="badge badge-default badge-stars" title="粉丝"><span class="fa fa-star"></span><span style="color:#333;user-select:none;"></span> 12</span>
+						</div>
+						<div class="container">
+							<div class="infos-row row">
+								<div class="col-md-6">昵称:	<span class="nicheng">IT小冲</span></div>
+								<div class="col-md-6">实名: <span class="shiming">樊冲</span></div>
+							</div>
+							<div class="infos-row row">
+								<div class="col-md-6">性别:	<span class="xingbie">男</span></div>
+								<div class="col-md-6">生日: <span class="shengri">1999-03-28</span></div>
+							</div>
+							<div class="infos-row row">
+								<div class="col-md-6">地区:	<span class="diqu">山东省菏泽市</span></div>
+								<div class="col-md-6">行业: <span class="hangye"></span>编程</div>
+							</div>
+							<div class="infos-row row">
+								<div class="col-md-6">职位:	<span class="zhiwei">没有</span></div>
+								<div class="col-md-6">简介: <span class="jianjie">软件工程专业</span></div>
+							</div>
+						</div>
+						<div class="change-info btn btn-info">更改个人信息</div>
+						<div class="window-change-info">
+							<div class="container info-change">
+								<h4 class="change-title">更改信息</h4>
+								<div class="change-nicheng"><span>昵称:</span><input type="text" name="nicheng"></div>
+								<div class="change-shiming"><span>实名:</span><input type="text" name="shiming"></div>
+								<div class="change-xingbie"><span>性别:</span><input type="text" name="xingbie"></div>
+								<div class="change-shengri"><span>生日:</span><input type="text" name="shengri"></div>
+								<div class="change-diqu"><span>地区:</span><input type="text" name="diqu"></div>
+								<div class="change-hangye"><span>行业:</span><input type="text" name="hangye"></div>
+								<div class="change-zhiwei"><span>职位:</span><input type="text" name="zhiwei"></div>
+								<div class="change-jianjie"><span style="vertical-align: top;">
+								简介:<span class="jianyao-exceed">123</span></span><textarea name="jianjie" cols="22" rows="2" style="resize:none;"></textarea></div>
+								<div class="btn-group btns-info" style="position:absolute;top:0;right:0px;">
+									<div id="info-close" class="btn btn-danger" ">关闭</div>
+									<div id="info-confirm" class="btn btn-success" style="height:30px;">更改</div>
+									<div id="info-reset" class="btn btn-info" style="height:30px;">重置</div>
+								</div>
+								<div class="pop-window">
+									信息已经被修改
+								</div>
+							</div>
+							
+						</div>
+						{% endif %}
+					</div>
+					<div class="panels panel1">
+						
+					</div>
+					<div class="panels panel2">
+
+					</div>
+					<div class="panels panel3">
+
+					</div>
+					<div class="panels panel4">
+
+					</div>
+					<div class="panels panel5">
+
+					</div>
+					<div class="panels panel6">
+
+					</div>
+					<div class="panels panel7">
+
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+{% endblock %}

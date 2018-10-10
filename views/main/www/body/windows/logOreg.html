@@ -1,0 +1,70 @@
+{% block logOreg-panel %}
+<div class="logOreg-panel">
+	<!-- 登录和注册页面2的三按钮-->
+	<div class="lr-panel-icon">
+		<span class="log-icon lr-icon-click lr-icon-move0" data-react="0">Log</span>
+		<span class="reg-icon" data-react="0">Reg</span>
+	</div>
+	<div class="lr-panel-close">
+		<span class="fa fa-close"></span>
+	</div>
+	<!-- 注册/登录提示信息弹窗 -->
+	<div id="pop-window">
+		<span class="fa fa-frown-o pop-ep"></span>
+		<span class="pop-text"></span>
+	</div>
+	<!-- 登录框页面 -->
+	<div class="lr-panel lr-panel0" data-react="0">
+		<header class="lr-panel0-header">
+			<span class="lr-panel0-brand">Login</span>
+		</header>
+		<section class="lr-panel0-body" id="lr0-body" ondragstart="return false;">
+			<span class="fa fa-user"></span>
+			<span class="fa fa-keyboard-o"></span>
+			<span class="log-text">Order by Plog...</span>
+			<input type="text" name="username" id="username" maxlength="24" autocomplete="off" autofocus placeholder="Username">
+			<input type="password" name="password" id="password" autocomplete="off" autofocus placeholder="Password" maxlength="24">
+			<input type="checkbox" name="login" checked disabled="true">
+			<button id="submit">Comin</button>
+		</section>
+		<footer class="lr-panel0-footer">
+			<span>Welcome back here! Thanks for your coming</span>
+		</footer>
+	</div>
+	<!-- 注册框页面 -->
+	<div class="lr-panel lr-panel1" data-react="0">
+		<header class="lr-panel1-header">
+			<span class="lr-panel1-brand">Register</span>
+		</header>
+		<section class="lr-panel1-body" id="lr1-body" ondragstart="return false;">
+			<span class="reg-text">Welcome to U bro...</span>
+			<span class="fa fa-envelope-o right-icon right-icon0"></span>
+			<span class="fa fa-key right-icon right-icon1"></span>
+			<span class="fa fa-key right-icon right-icon2"></span>
+			<input type="text" name="username" id="reg-username" maxlength="24" autocomplete="off" autofocus placeholder="Register@email">
+			<input type="password" name="password" id="reg-password" autocomplete="off" autofocus placeholder="Password" maxlength="20">
+			<input type="password" name="repassword" id="reg-repassword" autocomplete="off" autofocus placeholder="Reconfirm" maxlength="20">
+			<input type="checkbox" name="register" checked="checked">
+			<button id="reg-submit" data-period="">Register</button>
+			<button id="reg-clear">Reset</button>
+		</section>
+		<footer class="lr-panel1-footer">
+			<span>Welcome to U bro! Thanks for your register</span>
+		</footer>
+	</div>
+	<!-- 验证框页面 -->
+	<div class="lr-panel lr-panel2">
+		{% include "../../../../decorate/swing.html" %}
+		{% block animation-swing %}{% endblock %}
+		<footer class="lr-panel2-footer">
+			<div id="lr-verify2">
+				<div class="slide-bg"></div>
+				<div class="slide-text" ondragstart="return false;">
+					请拖动滑块进行验证
+				</div>
+				<div class="slide-btn">| | |</div>
+			</div>
+		</footer>
+	</div>
+</div>
+{% endblock %}

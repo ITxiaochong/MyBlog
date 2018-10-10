@@ -1,15 +1,15 @@
 /***************************************************
  * Created by Itxiaochong 24/09/2018
  * Origin-version  1.0.0
- * Updated 2times
- * Version 1.0.1	Modify on 26/09/2018
+ * Updated 3times
+ * Version 1.0.2	Modify on 9/10/2018
  * Description: 该文件是Client的窗口控制脚本
  */
 /***************************************************/
 
 
 /**
- * [公共数据 命名空间]
+ * [公共数据]
  * @type {[type]}
  */
 var lr_icon = $('.lr-panel-icon>span');
@@ -50,13 +50,6 @@ lr_verify.btn = document.querySelector('.slide-btn');
 lr_verify.success = false;
 lr_verify.distance = lr_verify.box2.offsetWidth-lr_verify.btn.offsetWidth;
 
-/**
- * [公共数据 命名空间]
- * []
- */
-
-
-
 /***************************************************/
 /**
  * [logOreg登陆面板头部icon控制]
@@ -96,9 +89,28 @@ $('.lr-panel-close').click(function(){
 });
 
 /**
+ * 当用户按下ESC键时候 隐藏登录注册窗口
+ */
+
+document.addEventListener('keydown',(e)=>{
+	if(e.keyCode == 27){
+		lr_icon[0].setAttribute('data-react',0);
+		lr_panel[0].setAttribute('data-react',0);
+		lr_icon[1].setAttribute('data-react',0);
+		lr_panel[1].setAttribute('data-react',0);
+		$('.windows-myinfo').hide(0);
+		$('.myinfo-mask').hide(0);
+	}
+});
+
+/**
  * [mask存在时禁止禁止搜索]
  */
 document.querySelector('#search-all').onfocus = function(e){
+	$(this).on('keydown',(e)=>{
+		if(e.keyCode == 27) this.blur();
+	});
+	console.log(e.keyCode);
 	if($('.myinfo-mask').css('display') == 'block'){
 		this.blur();
 	}
@@ -263,3 +275,22 @@ myinfo_room0.reg_clear.click(function(e){
 
 //滑块条验证
 lr_verify.btn.onmousedown = verifyBar;
+
+/**
+ * myinfo信息更改控制
+ */
+$('#info-reset').click(function(e){
+	$('.info-change input').val('');
+	$('textarea[name="jianjie"]').val('');
+
+});
+//将更改后的信息发送到服务器端
+//还没有写判断字数信息
+$('#info-confirm').click(function(e){
+	let window = $('.info-change > .pop-window');
+	window.css('display','block');
+	setTimeout(function(){window.css('display','none');},1000);
+	//还没有写自己的ajax状态处理,以应对返回的message Json
+	//或者直接在sendXhr里面的switch里面继续写 case
+	// sendXhr();
+});

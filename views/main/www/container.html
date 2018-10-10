@@ -1,0 +1,26 @@
+{% block container %}
+	<!-- masks -->
+	{% include "./masks/masks.html" %}
+	{% block masks %}{% endblock %}
+	<!-- header -->
+	{% include "./header/header.html" %}
+	{% block header %}{% endblock %}
+	<!-- body -->
+	<div class="scroll-content">
+		{% include "./body/content/content0.html" %}
+		{% block content0 %}{% endblock %}
+		{% include "./body/content/content1.html" %}
+		{% block content1 %}{% endblock %}
+		{% include "./body/content/content2.html" %}
+		{% block content2 %}{% endblock %}
+	</div>
+	<!-- windows -->
+	<div class="windows-myinfo" style="display:{{none}}">
+		<!-- log/reg/ver -->
+		{% include "./body/windows/logOreg.html" %}
+		{% block logOreg-panel %}{% endblock %}
+	</div>
+	<!-- footer -->
+	{% include "./footer/footer.html" %}
+	{% block footer %}{% endblock %}
+{% endblock %}

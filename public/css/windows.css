@@ -9,7 +9,7 @@
 	position: absolute;
 	height: 100%;
 	width: 100%;
-	background: rgba(0, 0, 0, .2);
+	background: rgba(0, 0, 0, 0);
 	display: none;
 	z-index: 80;
 }
@@ -120,7 +120,6 @@
 }
 /* 头部 */
 .lr-panel0-header{
-	position: relative;
 	z-index: 1;
 	width: 94%;
 	height: 60px;
@@ -187,7 +186,7 @@
 	display: block;
 	height: 30px;
 	font-size: 20px;
-	color: white;
+	color: #fff;
 	background: rgba(0,0,0,0);
 	border: 0;
 	border-bottom: 2px solid silver;
@@ -204,7 +203,7 @@
 	display: block;
 	height: 30px;
 	font-size: 20px;
-	color: #37686D;
+	color: #fff;
 	background: rgba(0,0,0,0);
 	border: 0;
 	border-bottom: 2px solid silver;
@@ -212,13 +211,14 @@
 	outline-style: none;
 	padding-left: 10px;
 	user-select: none;
-	width: 250px;
+	width: 235px;
 }
 /* 录入密码和账号时的动态样式 */
 #username:focus,#password:focus{
 	border-bottom: 1px solid #eee;
-	transform: scale(1.04) translate(8px,2px);
+	transform: scale(1.04) ;
 	transition:all .3s ease-in-out;
+	background: rgba(255,255,255,.1);
 }
 input[name="login"]{
 	position: absolute;
@@ -341,9 +341,10 @@ input[name="register"]{
 }
 /* lr-panel1-footer样式 */
 .lr-panel1-footer{
+	display: relative;
+	margin: 0 auto;
 	width: 94%;
 	height: 50px;
-	margin: 0 auto;
 	font-family: 'text-1';
 	font-size: 38px;
 	text-align: center;

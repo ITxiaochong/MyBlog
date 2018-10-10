@@ -38,7 +38,6 @@ function verifyBar(e){
 			lr_verify.btn.onmousedown = null;
 			document.onmousemove = null;
 			setTimeout(function(){
-				console.log('验证通过');
 				//注册发送
 				if(myinfo_room0.reg_username.val()){
 					console.log('api/user');
@@ -52,7 +51,6 @@ function verifyBar(e){
 
 					}
 				}else{
-						console.log('api/user/login');
 						for(var index in log_info)
 							log_info[index] = decrypt(log_info[index],log_model[index]);
 						sendXhr('post','api/user/login/',log_info);
@@ -109,12 +107,175 @@ function sendXhr(method,url,data,async=true){
 			var ep = myinfo_room0.pop_ep;
 			var text = myinfo_room0.pop_text;
 			var data = JSON.parse(this.responseText);
-			console.log(data);
-			// if(data.message)
-			window.fadeIn(0);
-			text.html('<span style="font-size:24px;color:#2BAD2B;"> √ </span>请继续完成注册');
-			ep.removeClass('fa-frown-o info-blue').addClass('fa-smile-o info-green');
-			window.fadeOut(800);
+			switch(data.code){
+				case 0://邮件发送,等待验证
+					window.fadeIn(0);
+					text.html('<span style="font-size:24px;color:#2BAD2B;"> √ </span>邮件已发送,请于5小时内验证');
+					ep.removeClass('fa-frown-o info-blue').addClass('fa-smile-o info-green');
+					window.fadeOut(1200);
+					setTimeout(()=>{
+						lr_icon[0].setAttribute('data-react',0);
+						lr_panel[0].setAttribute('data-react',0);
+						lr_icon[1].setAttribute('data-react',0);
+						lr_panel[1].setAttribute('data-react',0);
+						$('.windows-myinfo').hide();
+						$('.myinfo-mask').hide();
+					},1000);
+					break;
+				case 5://用户名已注册
+					window.fadeIn(0);
+					text.html('<span style="font-size:24px;color:#4872a3;"> × </span>用户名已经注册');
+					ep.removeClass('fa-smile-o info-green').addClass('fa-frown-o info-blue');
+					window.fadeOut(800);
+					lr_icon[1].setAttribute('data-react',1);
+					lr_panel[1].setAttribute('data-react',1);
+					lr_icon[0].setAttribute('data-react',0);
+					lr_panel[0].setAttribute('data-react',0);
+					lr_icon.removeClass('lr-icon-click');
+					lr_icon[0].classList.remove('lr-icon-move0');
+					lr_icon[1].classList.add('lr-icon-click','lr-icon-move1');
+					lr_panel.hide(0);
+					lr_panel[1].style.display = 'block';
+					if(myinfo_room0.reg_username.val()) myinfo_room0.reg_right_icon0.hide();
+					myinfo_room0.reg_username.focus();
+					$('.windows-myinfo').show(1500);
+					$('.myinfo-mask').show(1500);
+					break;
+				case 6://用户名或密码错误
+					window.fadeIn(0);
+					text.html('<span style="font-size:24px;color:#4872a3;"> × </span>用户名或密码错误');
+					ep.removeClass('fa-smile-o info-green').addClass('fa-frown-o info-blue');
+					window.fadeOut(800);
+					setTimeout(()=>{
+						lr_icon[0].setAttribute('data-react',1);
+						lr_panel[0].setAttribute('data-react',1);
+						lr_icon[1].setAttribute('data-react',0);
+						lr_panel[1].setAttribute('data-react',0);
+						lr_icon.removeClass('lr-icon-click');
+						lr_icon[1].classList.remove('lr-icon-move0');
+						lr_icon[0].classList.add('lr-icon-click','lr-icon-move0');
+						lr_panel.hide(0);
+						lr_panel[0].style.display = 'block';
+						myinfo_room0.username.focus();
+						$('.myinfo-mask').show(0);
+						$('.windows-myinfo').show(0);
+					},600);
+					break;
+				case 7://登录成功
+					window.fadeIn(0);
+					text.html('<span style="font-size:24px;color:#2BAD2B;"> √ </span>登录 成功');
+					ep.removeClass('fa-frown-o info-blue').addClass('fa-smile-o info-green');
+					window.fadeOut(800);
+					//登录成功     1.隐藏“登录/注册”头及窗口  2.显示头像
+					setTimeout(()=>{
+						$('.windows-myinfo').hide();
+						$('.myinfo-mask').hide();
+						$('.logOreg').hide();
+						$('.img-head > img').show();
+						$('.Myblog').click();
+						pages.attr('data-react',0);
+						pages[1].setAttribute('data-react',1);
+						scrollContent.style.top = -90.1+"%";
+					},600);
+					break;
+				case 8://账号已经注销
+					window.fadeIn(0);
+					text.html('<span style="font-size:24px;color:#4872a3;"> × </span>此账号已注销');
+					ep.removeClass('fa-smile-o info-green').addClass('fa-frown-o info-blue');
+					window.fadeOut(800);
+					setTimeout(()=>{
+						lr_icon[0].setAttribute('data-react',1);
+						lr_panel[0].setAttribute('data-react',1);
+						lr_icon[1].setAttribute('data-react',0);
+						lr_panel[1].setAttribute('data-react',0);
+						lr_icon.removeClass('lr-icon-click');
+						lr_icon[1].classList.remove('lr-icon-move0');
+						lr_icon[0].classList.add('lr-icon-click','lr-icon-move0');
+						lr_panel.hide(0);
+						lr_panel[0].style.display = 'block';
+						myinfo_room0.username.focus();
+						$('.myinfo-mask').show(0);
+						$('.windows-myinfo').show(0);
+					},600);
+					break;
+				case 9://您未进行验证
+					window.fadeIn(0);
+					text.html('<span style="font-size:24px;color:#4872a3;"> × </span>您未进行验证');
+					ep.removeClass('fa-smile-o info-green').addClass('fa-frown-o info-blue');
+					window.fadeOut(800);
+					setTimeout(()=>{
+						lr_icon[0].setAttribute('data-react',1);
+						lr_panel[0].setAttribute('data-react',1);
+						lr_icon[1].setAttribute('data-react',0);
+						lr_panel[1].setAttribute('data-react',0);
+						lr_icon.removeClass('lr-icon-click');
+						lr_icon[1].classList.remove('lr-icon-move0');
+						lr_icon[0].classList.add('lr-icon-click','lr-icon-move0');
+						lr_panel.hide(0);
+						lr_panel[0].style.display = 'block';
+						myinfo_room0.username.focus();
+						$('.myinfo-mask').show(0);
+						$('.windows-myinfo').show(0);
+					},600);
+					break;
+				case 10://今天的注册人数达到上限
+					window.fadeIn(0);
+					text.html('<span style="font-size:24px;color:#4872a3;"> × </span>Sorry,今天的注册数达到上限');
+					ep.removeClass('fa-smile-o info-green').addClass('fa-frown-o info-blue');
+					window.fadeOut(800);
+					lr_icon[1].setAttribute('data-react',1);
+					lr_panel[1].setAttribute('data-react',1);
+					lr_icon[0].setAttribute('data-react',0);
+					lr_panel[0].setAttribute('data-react',0);
+					lr_icon.removeClass('lr-icon-click');
+					lr_icon[0].classList.remove('lr-icon-move0');
+					lr_icon[1].classList.add('lr-icon-click','lr-icon-move1');
+					lr_panel.hide(0);
+					lr_panel[1].style.display = 'block';
+					if(myinfo_room0.reg_username.val()) myinfo_room0.reg_right_icon0.hide();
+					myinfo_room0.reg_username.focus();
+					$('.windows-myinfo').show(1500);
+					$('.myinfo-mask').show(1500);
+					break;
+				case 11://验证邮件发送失败
+					window.fadeIn(0);
+					text.html('<span style="font-size:24px;color:#4872a3;"> × </span>Sorry,验证邮件发送服务失败');
+					ep.removeClass('fa-smile-o info-green').addClass('fa-frown-o info-blue');
+					window.fadeOut(800);
+					lr_icon[1].setAttribute('data-react',1);
+					lr_panel[1].setAttribute('data-react',1);
+					lr_icon[0].setAttribute('data-react',0);
+					lr_panel[0].setAttribute('data-react',0);
+					lr_icon.removeClass('lr-icon-click');
+					lr_icon[0].classList.remove('lr-icon-move0');
+					lr_icon[1].classList.add('lr-icon-click','lr-icon-move1');
+					lr_panel.hide(0);
+					lr_panel[1].style.display = 'block';
+					if(myinfo_room0.reg_username.val()) myinfo_room0.reg_right_icon0.hide();
+					myinfo_room0.reg_username.focus();
+					$('.windows-myinfo').show(1500);
+					$('.myinfo-mask').show(1500);
+					break;
+				default://服务器未响应
+					window.fadeIn(0);
+					text.html('<span style="font-size:24px;color:#4872a3;"> × </span>Sorry,服务器未响应');
+					ep.removeClass('fa-smile-o info-green').addClass('fa-frown-o info-blue');
+					window.fadeOut(800);
+					lr_icon[1].setAttribute('data-react',1);
+					lr_panel[1].setAttribute('data-react',1);
+					lr_icon[0].setAttribute('data-react',0);
+					lr_panel[0].setAttribute('data-react',0);
+					lr_icon.removeClass('lr-icon-click');
+					lr_icon[0].classList.remove('lr-icon-move0');
+					lr_icon[1].classList.add('lr-icon-click','lr-icon-move1');
+					lr_panel.hide(0);
+					lr_panel[1].style.display = 'block';
+					if(myinfo_room0.reg_username.val()) myinfo_room0.reg_right_icon0.hide();
+					myinfo_room0.reg_username.focus();
+					$('.windows-myinfo').show(1500);
+					$('.myinfo-mask').show(1500);
+					break;
+			}
 		}
 	}
 }
